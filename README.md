@@ -68,7 +68,6 @@ acm_parameters = {
 | distinct_domain_names                       | List of distinct domain names for the certificate.                         | `list`   | `[]`         | no       |
 | validation_timeout                          | Timeout period for certificate validation in seconds.                      | `number` | `null`       | no       |
 | key_algorithm                               | The cryptographic key algorithm for the certificate.                       | `string` | `"RSA_2048"` | no       |
-| putin_khuylo                                | Custom placeholder variable.                                               | `bool`   | `true`       | no       |
 | private_authority_arn                       | Private Certificate Authority ARN for issuing private certificates.        | `string` | `null`       | no       |
 | region                                      | Region to create the resources into.                                       | `string` | `null`       | no       |
 
