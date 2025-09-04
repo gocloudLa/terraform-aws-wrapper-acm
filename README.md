@@ -59,12 +59,12 @@ acm_parameters = {
 | domain_name                                 | The primary domain name for the certificate.                               | `string` | `each.key`   | no       |
 | subject_alternative_names                   | A list of alternative domain names for the certificate.                    | `list`   | `[]`         | no       |
 | validation_method                           | The method used for domain validation (DNS or EMAIL).                      | `string` | `"DNS"`      | no       |
-| validation_option                           | Custom options for validation.                                             | `null`   | `{}`         | no       |
+| validation_option                           | Custom options for validation.                                             | `map`    | `{}`         | no       |
 | create_route53_records                      | Whether to create Route53 records for the certificate.                     | `bool`   | `true`       | no       |
 | validation_record_fqdns                     | List of fully qualified domain names (FQDNs) for validation records.       | `list`   | `[]`         | no       |
 | zone_id                                     | Route53 hosted zone ID for domain validation.                              | `string` | `null`       | no       |
 | dns_ttl                                     | Time-to-live (TTL) for DNS validation records.                             | `number` | `60`         | no       |
-| acm_certificate_domain_validation_options   | ACM certificate domain validation options.                                 | `null`   | `{}`         | no       |
+| acm_certificate_domain_validation_options   | ACM certificate domain validation options.                                 | `map`    | `{}`         | no       |
 | distinct_domain_names                       | List of distinct domain names for the certificate.                         | `list`   | `[]`         | no       |
 | validation_timeout                          | Timeout period for certificate validation in seconds.                      | `number` | `null`       | no       |
 | key_algorithm                               | The cryptographic key algorithm for the certificate.                       | `string` | `"RSA_2048"` | no       |

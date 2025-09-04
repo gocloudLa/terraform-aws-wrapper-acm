@@ -10,7 +10,6 @@ This example demonstrates the use of a Terraform module to manage AWS ACM certif
 The main purpose is to manage AWS ACM certificates with custom settings for different domains.
 
 #### Key Features Demonstrated
-- **Module Source**: Utilizes a module from a relative path.
 - **Provider Configuration**: Configures the AWS provider for a specific region.
 - **Acm Parameters**: Defines subject alternative names for different domains.
 - **Route 53 Records**: Option to create or skip Route 53 records for a domain.
