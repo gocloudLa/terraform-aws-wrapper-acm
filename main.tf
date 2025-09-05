@@ -26,7 +26,7 @@ module "acm" {
   region                                      = try(each.value.region, var.acm_defaults.region, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.acm_defaults.private_authority_arn, null)
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.acm_defaults.tags, null))
 }
 
 module "acm_secondary" {
@@ -58,7 +58,7 @@ module "acm_secondary" {
   private_authority_arn                       = try(each.value.private_authority_arn, var.acm_defaults.private_authority_arn, null)
 
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.acm_defaults.tags, null))
 
   providers = {
     aws = aws.use1

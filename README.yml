@@ -55,3 +55,4 @@ input_table: |
   | key_algorithm | The cryptographic key algorithm for the certificate. | `string` | `"RSA_2048"` | no |
   | private_authority_arn | Private Certificate Authority ARN for issuing private certificates. | `string` | `null` | no |
   | region | Region to create the resources into. | `string` | `null` | no |
+  | tags | A map of tags to assign to resources. | `map` | `{}` | no |
