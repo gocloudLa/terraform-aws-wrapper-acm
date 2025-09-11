@@ -1,6 +1,6 @@
 module "acm" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "6.0.0"
+  version = "6.1.0"
 
   for_each = var.acm_parameters
 
@@ -25,13 +25,14 @@ module "acm" {
   zones                                       = try(each.value.zones, var.acm_defaults.zones, {})
   region                                      = try(each.value.region, var.acm_defaults.region, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.acm_defaults.private_authority_arn, null)
+  export                                      = try(each.value.export, var.acm_defaults.export, null)
 
   tags = merge(local.common_tags, try(each.value.tags, var.acm_defaults.tags, null))
 }
 
 module "acm_secondary" {
   source  = "terraform-aws-modules/acm/aws"
-  version = "6.0.0"
+  version = "6.1.0"
 
   for_each = var.acm_parameters
 
