@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.0.0...v1.0.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* **terraform:** external modules upgrade 20250910 ([71a8982](https://github.com/gocloudLa/terraform-aws-wrapper-acm/commit/71a8982496d7e7a90b7376abd5f9854f66316aa7))
+
 ## 1.0.0 (2025-09-05)
 
 
