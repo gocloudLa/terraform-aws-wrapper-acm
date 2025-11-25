@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.0.1...v1.0.2) (2025-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump terraform-aws-modules/acm/aws from 6.1.0 to 6.1.1 in the all-terraform-dependencies group across 1 directory ([#5](https://github.com/gocloudLa/terraform-aws-wrapper-acm/issues/5)) ([60368f0](https://github.com/gocloudLa/terraform-aws-wrapper-acm/commit/60368f06382e671fabbbc3e036569c2b6224755a))
+
 ## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.0.0...v1.0.1) (2025-09-18)
 
 
