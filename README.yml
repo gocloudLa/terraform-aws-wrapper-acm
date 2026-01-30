@@ -37,6 +37,7 @@ important_notes: ""
 input_table: |
   | create_certificate | Determines if a new certificate should be created. | `bool` | `true` | no |
   | create_route53_records_only | Specifies if only Route53 records should be created without a certificate. | `bool` | `false` | no |
+  | create_acm_us_east_1 | Specifies if a new certificate should be created in us-east-1 region. | `bool` | `true` | no |  
   | validate_certificate | Enables validation for the created certificate. | `bool` | `true` | no |
   | validation_allow_overwrite_records | Allows overwriting existing DNS records during validation. | `bool` | `true` | no |
   | wait_for_validation | Waits for the certificate validation to complete. | `bool` | `true` | no |
