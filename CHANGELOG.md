@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.0.1...v1.1.0) (2026-01-30)
+
+
+### Features
+
+* **module:** add create_acm_us_east_1 var ([#8](https://github.com/gocloudLa/terraform-aws-wrapper-acm/issues/8)) ([7fa05ef](https://github.com/gocloudLa/terraform-aws-wrapper-acm/commit/7fa05efc0fff1514f7e378283f04ffc16fc6193b))
+
+
+### Bug Fixes
+
+* **deps:** bump terraform-aws-modules/acm/aws from 6.1.0 to 6.1.1 in the all-terraform-dependencies group across 1 directory ([#5](https://github.com/gocloudLa/terraform-aws-wrapper-acm/issues/5)) ([60368f0](https://github.com/gocloudLa/terraform-aws-wrapper-acm/commit/60368f06382e671fabbbc3e036569c2b6224755a))
+
 ## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.0.0...v1.0.1) (2025-09-18)
 
 
