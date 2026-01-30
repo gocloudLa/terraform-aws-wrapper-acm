@@ -36,7 +36,7 @@ module "acm_secondary" {
 
   for_each = var.acm_parameters
 
-  create_certificate                          = local.metadata.aws_region == "us-east-1" ? false : true
+  create_certificate                          = local.metadata.aws_region != "us-east-1" && try(each.value.create_acm_us_east_1, true) ? true : false
   create_route53_records_only                 = try(each.value.create_route53_records_only, var.acm_defaults.create_route53_records_only, false)
   validate_certificate                        = try(each.value.validate_certificate, var.acm_defaults.validate_certificate, true)
   validation_allow_overwrite_records          = try(each.value.validation_allow_overwrite_records, var.acm_defaults.validation_allow_overwrite_records, true)
