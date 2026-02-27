@@ -15,7 +15,7 @@ The Terraform Wrapper for ACM simplifies the configuration of the SSL Certificat
 ### 🔗 External Modules
 | Name | Version |
 |------|------:|
-| <a href="https://github.com/terraform-aws-modules/terraform-aws-acm" target="_blank">terraform-aws-modules/acm/aws</a> | 6.1.1 |
+| <a href="https://github.com/terraform-aws-modules/terraform-aws-acm" target="_blank">terraform-aws-modules/acm/aws</a> | 6.3.0 |
 
 
 
