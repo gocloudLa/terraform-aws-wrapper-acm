@@ -13,7 +13,9 @@ The main purpose is to manage AWS ACM certificates with custom settings for diff
 - **Provider Configuration**: Configures the AWS provider for a specific region.
 - **Acm Parameters**: Defines subject alternative names for different domains.
 - **Route 53 Records**: Option to create or skip Route 53 records for a domain.
-- **Certificate Validation**: Option to validate or skip validation for a certificate.
+- **Certificate Validation**: Option to validate by DNS or email, or to skip validation.
+- **Self-signed Certificate**: Generates a certificate and imports it into ACM.
+- **Imported Certificate**: Commented example that uploads PEM files from disk.
 
 ## 🚀 Quick Start
 

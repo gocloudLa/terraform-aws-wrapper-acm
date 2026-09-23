@@ -1,6 +1,5 @@
 module "acm" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "6.3.0"
+  source = "./modules/aws/terraform-aws-acm"
 
   for_each = var.acm_parameters
 
@@ -26,13 +25,20 @@ module "acm" {
   region                                      = try(each.value.region, var.acm_defaults.region, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.acm_defaults.private_authority_arn, null)
   export                                      = try(each.value.export, var.acm_defaults.export, null)
+  certificate_source                          = try(each.value.certificate_source, var.acm_defaults.certificate_source, "amazon")
+  private_key                                 = try(each.value.private_key, var.acm_defaults.private_key, null)
+  certificate_body                            = try(each.value.certificate_body, var.acm_defaults.certificate_body, null)
+  certificate_chain                           = try(each.value.certificate_chain, var.acm_defaults.certificate_chain, null)
+  self_signed_validity_period_hours           = try(each.value.self_signed_validity_period_hours, var.acm_defaults.self_signed_validity_period_hours, 8760)
+  self_signed_early_renewal_hours             = try(each.value.self_signed_early_renewal_hours, var.acm_defaults.self_signed_early_renewal_hours, 720)
+  self_signed_allowed_uses                    = try(each.value.self_signed_allowed_uses, var.acm_defaults.self_signed_allowed_uses, ["key_encipherment", "digital_signature", "server_auth"])
+  self_signed_subject                         = try(each.value.self_signed_subject, var.acm_defaults.self_signed_subject, {})
 
   tags = merge(local.common_tags, try(each.value.tags, var.acm_defaults.tags, null))
 }
 
 module "acm_secondary" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "6.3.0"
+  source = "./modules/aws/terraform-aws-acm"
 
   for_each = var.acm_parameters
 
@@ -57,7 +63,15 @@ module "acm_secondary" {
   zones                                       = try(each.value.zones, var.acm_defaults.zones, {})
   region                                      = try(each.value.region, var.acm_defaults.region, null)
   private_authority_arn                       = try(each.value.private_authority_arn, var.acm_defaults.private_authority_arn, null)
-
+  export                                      = try(each.value.export, var.acm_defaults.export, null)
+  certificate_source                          = try(each.value.certificate_source, var.acm_defaults.certificate_source, "amazon")
+  private_key                                 = try(each.value.private_key, var.acm_defaults.private_key, null)
+  certificate_body                            = try(each.value.certificate_body, var.acm_defaults.certificate_body, null)
+  certificate_chain                           = try(each.value.certificate_chain, var.acm_defaults.certificate_chain, null)
+  self_signed_validity_period_hours           = try(each.value.self_signed_validity_period_hours, var.acm_defaults.self_signed_validity_period_hours, 8760)
+  self_signed_early_renewal_hours             = try(each.value.self_signed_early_renewal_hours, var.acm_defaults.self_signed_early_renewal_hours, 720)
+  self_signed_allowed_uses                    = try(each.value.self_signed_allowed_uses, var.acm_defaults.self_signed_allowed_uses, ["key_encipherment", "digital_signature", "server_auth"])
+  self_signed_subject                         = try(each.value.self_signed_subject, var.acm_defaults.self_signed_subject, {})
 
   tags = merge(local.common_tags, try(each.value.tags, var.acm_defaults.tags, null))
 
