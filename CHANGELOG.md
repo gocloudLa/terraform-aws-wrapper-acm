@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.1.1...v1.2.0) (2026-09-23)
+
+
+### Features
+
+* **module:** add import & self-signed certificate support ([#12](https://github.com/gocloudLa/terraform-aws-wrapper-acm/issues/12)) ([5970016](https://github.com/gocloudLa/terraform-aws-wrapper-acm/commit/5970016fbda61376d750f4389ea1bf739ff11070))
+
 ## [1.1.1](https://github.com/gocloudLa/terraform-aws-wrapper-acm/compare/v1.1.0...v1.1.1) (2026-02-27)
 
 
