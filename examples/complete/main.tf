@@ -12,6 +12,9 @@ module "wrapper_acm" {
       subject_alternative_names = [
         "*.${local.zone_public}"
       ]
+
+      # key_algorithm = "RSA_2048"
+      # create_acm_us_east_1 = true
     }
 
     "gcl-example.com" = {
@@ -31,7 +34,7 @@ module "wrapper_acm" {
         }
       }
       create_route53_records = false
-      # Default: true. The lab does not approve the validation email.
+      # Lab: do not wait for the approval email.
       wait_for_validation = false
     }
 
@@ -40,6 +43,18 @@ module "wrapper_acm" {
       subject_alternative_names = [
         "*.internal.gcl-example.com"
       ]
+
+      # key_algorithm                     = "RSA_2048"
+      # self_signed_validity_period_hours = 8760
+      # self_signed_subject = {
+      #   organization        = "Example Inc"
+      #   organizational_unit = "Platform"
+      #   country             = "AR"
+      #   locality            = "Buenos Aires"
+      #   province            = "Buenos Aires"
+      #   street_address      = ["Example 123"]
+      #   postal_code         = "C1000"
+      # }
     }
 
     # "imported.gcl-example.com" = {

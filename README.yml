@@ -18,6 +18,9 @@ quick_start: |
       subject_alternative_names = [
         "*.${local.zone_public}"
       ]
+
+      # key_algorithm = "RSA_2048"
+      # create_acm_us_east_1 = true
     }
 
     "gcl-example.com" = {
@@ -37,7 +40,7 @@ quick_start: |
         }
       }
       create_route53_records = false
-      # Default: true. The lab does not approve the validation email.
+      # Lab: do not wait for the approval email.
       wait_for_validation = false
     }
 
@@ -46,6 +49,18 @@ quick_start: |
       subject_alternative_names = [
         "*.internal.gcl-example.com"
       ]
+
+      # key_algorithm                     = "RSA_2048"
+      # self_signed_validity_period_hours = 8760
+      # self_signed_subject = {
+      #   organization        = "Example Inc"
+      #   organizational_unit = "Platform"
+      #   country             = "AR"
+      #   locality            = "Buenos Aires"
+      #   province            = "Buenos Aires"
+      #   street_address      = ["Example 123"]
+      #   postal_code         = "C1000"
+      # }
     }
 
     # "imported.gcl-example.com" = {
@@ -71,6 +86,9 @@ features:
               subject_alternative_names = [
                 "*.example.com"
               ]
+
+              # key_algorithm = "RSA_2048"
+              # create_acm_us_east_1 = true
             }
           }
           ```
@@ -86,7 +104,6 @@ features:
                 }
               }
               create_route53_records = false
-              # Default: true
               # wait_for_validation = true
             }
           }
@@ -105,7 +122,7 @@ features:
               certificate_source = "import"
               certificate_body   = file("${path.module}/certs/imported.crt")
               private_key        = file("${path.module}/certs/imported.key")
-              certificate_chain  = file("${path.module}/certs/chain.crt")
+              # certificate_chain = file("${path.module}/certs/chain.crt")
             }
           }
           ```
@@ -124,6 +141,18 @@ features:
               subject_alternative_names = [
                 "*.internal.example.com"
               ]
+
+              # key_algorithm                     = "RSA_2048"
+              # self_signed_validity_period_hours = 8760
+              # self_signed_subject = {
+              #   organization        = "Example Inc"
+              #   organizational_unit = "Platform"
+              #   country             = "AR"
+              #   locality            = "Buenos Aires"
+              #   province            = "Buenos Aires"
+              #   street_address      = ["Example 123"]
+              #   postal_code         = "C1000"
+              # }
             }
           }
           ```
@@ -153,16 +182,16 @@ input_table: |
   | certificate_body | PEM-encoded certificate body. Required when certificate_source is import. | `string` | `null` | no |
   | certificate_chain | PEM-encoded certificate chain of an imported certificate. | `string` | `null` | no |
   | validation_method | The method used for domain validation (DNS or EMAIL). | `string` | `"DNS"` | no |
-  | validation_option | Custom options for validation. | `map` | `{}` | no |
+  | validation_option | Map of certificate domain name to validation_domain. Used when validation_method is EMAIL. | `map` | `{}` | no |
   | validation_record_fqdns | List of fully qualified domain names (FQDNs) for validation records. | `list` | `[]` | no |
   | validation_timeout | Timeout period for certificate validation. | `string` | `null` | no |
   | dns_ttl | Time-to-live (TTL) for DNS validation records. | `number` | `60` | no |
-  | key_algorithm | The cryptographic key algorithm for the certificate. | `string` | `"RSA_2048"` | no |
+  | key_algorithm | Key algorithm. Valid values are RSA_2048, RSA_4096, EC_prime256v1, and EC_secp384r1. | `string` | `"RSA_2048"` | no |
   | export | Whether the certificate can be exported. Valid values are ENABLED or DISABLED. | `string` | `null` | no |
   | self_signed_validity_period_hours | Number of hours a self-signed certificate remains valid. | `number` | `8760` | no |
   | self_signed_early_renewal_hours | Hours before expiry when Terraform renews a self-signed certificate. | `number` | `720` | no |
   | self_signed_allowed_uses | Allowed key usages of a self-signed certificate. | `list` | `["key_encipherment", "digital_signature", "server_auth"]` | no |
-  | self_signed_subject | Additional subject attributes for a self-signed certificate. | `object` | `{}` | no |
+  | self_signed_subject | Self-signed subject. Keys: organization, organizational_unit, country, locality, province, street_address, postal_code. common_name comes from domain_name. | `object` | `{}` | no |
   | acm_certificate_domain_validation_options | ACM certificate domain validation options. | `map` | `{}` | no |
   | distinct_domain_names | List of distinct domain names for the certificate. | `list` | `[]` | no |
   | tags | A map of tags to assign to resources. | `map` | `{}` | no |
